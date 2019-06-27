@@ -7,7 +7,7 @@ import NotFond from "./views/404";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
@@ -36,4 +36,16 @@ export default new Router({
             component: NotFond
         }
     ]
-})
+});
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+    // token 是否存在
+    const islogin = !!localStorage.token;
+    if (to.path === '/login' || to.path === '/register') {
+        next();
+    } else {
+        islogin ? next() : next('/login');
+    }
+});
+export default router;

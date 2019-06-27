@@ -21,9 +21,6 @@
                 console.log(localStorage.getItem("token"))
                 this.$axiox
                     .get("/api/users/hello", {
-                        headers: {
-                            "Authorization": localStorage.getItem("token")
-                        }
                     })
                     .then(res => {
                         console.log("返回值" + res.data)
@@ -34,9 +31,6 @@
                 console.log(localStorage.getItem("token"))
                 this.$axiox
                     .get("/api/users/admin", {
-                        headers: {
-                            "Authorization": localStorage.getItem("token")
-                        }
                     })
                     .then(res => {
                         console.log("返回值" + res.data)

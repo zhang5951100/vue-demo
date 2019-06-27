@@ -73,9 +73,9 @@
                             .then(res => {
                                 // 拿到token
                                 console.log(res.data);
-                                localStorage.setItem("token",res.data)
+                                localStorage.setItem("token", res.data)
+                                this.$router.push("/index")
                             });
-                        this.$router.push("/index")
                     }
                 });
             }
